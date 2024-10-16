@@ -1,9 +1,9 @@
 <footer class="footer">
-    <wrapper>
+    <div class="wrapper">
         <h2 class="blogTitle">Get In Touch With Us</h2>
         <address class="footer__address">4578 Marmora Road,Glasgow D04 89GR</address>
         <div class="footer__phone">
-            <img src="img/phone.png" alt="phone" class="footer__imgPhone">
+            <img src="<?echo WPLAND_DIR_IMG?>/phone.png" alt="phone" class="footer__imgPhone">
             <a href="tel:+78002345678" class="footer__phoneItem">800-2345-678;</a>
             <a href="tel:+78002345679" class="footer__phoneItem">800-2345-679</a>
         </div>
@@ -18,9 +18,9 @@
         </div>
         <div class="footer__copyright">
             <div class="footer__logo"><img src="<?echo WPLAND_DIR_IMG?>logo.png" alt="logo" class="headerLeft__logo"></div>
-            <div class="footer__copy">wegy &#169; 2015.  Privacy Policy </div>
+            <div class="footer__copy">wegy &#169; <?php echo date('Y')?>.  Privacy Policy </div>
         </div>
-    </wrapper>
+</div>
 </footer>
 
 
