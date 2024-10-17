@@ -29,14 +29,12 @@ function is_fa_check($is_fa){
 }
 
 function packages_list($id){
-  $fields = get_fields($id);
-  return [
-  '<li class="pacItem__list"><i class="fa '.is_fa_check($fields['lorem_bool']).'" aria-hidden="true"></i>'.$fields['lorem_text'].'</li>',
-  '<li class="pacItem__list"><i class="fa '.is_fa_check($fields['conse_bool']).'" aria-hidden="true"></i>'.$fields['conse_text'].'</li>',
-  '<li class="pacItem__list"><i class="fa '.is_fa_check($fields['elit_bool']).'" aria-hidden="true"></i>'.$fields['elit_text'].'</li>',
-  '<li class="pacItem__list"><i class="fa '.is_fa_check($fields['incididunt_bool']).'" aria-hidden="true"></i>'.$fields['incididunt_text'].'</li>',
-  '<li class="pacItem__list"><i class="fa '.is_fa_check($fields['et_bool']).'" aria-hidden="true"></i>'.$fields['et_text'].'</li>',
-  '<li class="pacItem__list"><i class="fa '.is_fa_check($fields['ut_bool']).'" aria-hidden="true"></i>'.$fields['ut_text'].'</li>',
-  ];
+  $fields = get_field_objects($id);
+  $res = [];
 
+  foreach($fields as $name => $field){
+    $res[] = '<li class="pacItem__list"><i class="fa '.is_fa_check($field['value']).'" aria-hidden="true"></i>'.$field['label'].'</li>'
+    ; 
+  }
+  return $res;
 }

@@ -32,7 +32,7 @@ Template Name: Для главной
       <div class="repItems">
           <?php foreach(wpland_get_new_posts('presents') as $article):?>
           <div class="repItem">
-              <img src="<?php echo get_the_post_thumbnail_url($article['id'])?>" alt="" class="repItem__img">
+              <img src="<?php echo $article['img']?>" alt="" class="repItem__img">
               <div class="repItem__title"><?php echo $article['title']?></div>
               <div class="repItem__text"><?php echo $article['content']?></div>
           </div>
@@ -46,7 +46,7 @@ Template Name: Для главной
       <?php foreach(wpland_get_new_posts('features', -1) as $article):?>
           <div class="ftItem">
               <div class="ftItem__img">
-                <img class="ftItem__icon" src="<?php echo get_the_post_thumbnail_url($article['id'])?>" alt="res">
+                <img class="ftItem__icon" src="<?php echo $article['img']?>" alt="res">
               </div>
               <div class="ftItem__box">
                   <div class="ftItem__title"><?php echo $article['title']?></div>
@@ -72,7 +72,7 @@ Template Name: Для главной
               <?php foreach(wpland_get_new_posts('discover', -1) as $article):?>
                   <div class="disItemR__list">
                       <div class="disItemR__imgCircle">
-                        <img src="<?php echo get_the_post_thumbnail_url($article['id'])?>" alt="adv" class="disItemR__icon">
+                        <img src="<?php echo $article['img']?>" alt="adv" class="disItemR__icon">
                       </div>
                       <span class="disItemR__listText"><?php echo $article['title']?></span>
                    </div>
@@ -87,7 +87,7 @@ Template Name: Для главной
     <?php foreach(wpland_get_new_posts('advantages') as $article):?>
       <div class="advItem advItem-left">
           <div class="advItem__box">
-              <img src="<?php echo get_the_post_thumbnail_url($article['id'])?>" alt="" class="advItem__icon advItem__icon-small">
+              <img src="<?php echo $article['img']?>" alt="" class="advItem__icon advItem__icon-small">
               <div class="advItem__title"><?php echo $article['title']?></div>
               <div class="advItem__text"><?php echo $article['content']?></div>
           </div>
@@ -101,7 +101,7 @@ Template Name: Для главной
       <div class="blogItems">
         <?php foreach(wpland_get_new_posts() as $article):?>
           <div class="blogItem">
-              <img src="<?php echo get_the_post_thumbnail_url($article['id'])?>" alt="" class="blogItem__img">
+              <img src="<?php echo $article['img']?>" alt="" class="blogItem__img">
               <div class="blogItem__title"><?php echo $article['title']?></div>
               <div class="blogItem__text"><?php echo $article['content']?></div>
               <div class="blogItem__meta">
@@ -118,9 +118,9 @@ Template Name: Для главной
         <?php endforeach;?>
       </div>
       <div class="blogButtons">
-          <div class="btn btn-green">
+          <a class="btn btn-green" href="<?php echo $wp_rewrite->front?>blog">
             See all posts
-          </div>
+          </a>
       </div>
   </div>
 </section>
@@ -129,7 +129,7 @@ Template Name: Для главной
       <div class="statItems">
         <?php foreach(wpland_get_new_posts('stats', -1) as $article):?>
           <div class="statItem">
-              <div class="statItem__icon"><img src="<?php echo get_the_post_thumbnail_url($article['id'])?>" alt=""></div>
+              <div class="statItem__icon"><img src="<?php echo $article['img']?>" alt=""></div>
               <div class="statItem__number"><?php echo $article['title']?></div>
               <div class="statItem__text"><?php echo $article['content']?></div>
           </div>
@@ -146,7 +146,7 @@ Template Name: Для главной
               <div class="pacItem__title"><?php echo $article['title']?></div>
               <div class="pacItem__price"><sup class="pacItem__sup">$</sup><?php echo $article['content']?><sub class="pacItem__sub">/month</sub></div>
               <ul class="pacItem__lists">
-              <?php foreach(packages_list($article['id']) as $field){ echo $field;}?>                 
+              <?php foreach(packages_list($article['id']) as $field){ echo $field;}?>              
               </ul>
           </div>
           <?php endforeach;?>
@@ -157,7 +157,7 @@ Template Name: Для главной
   <div class="sliderBot">
     <?php foreach(wpland_get_new_posts('reviews', -1) as $article):?>
       <div class="slider__team">
-          <div class="sliderBot__img"><img src="<?php echo get_the_post_thumbnail_url($article['id'])?>" alt="tom" class="sliderBot__photo"></div>
+          <div class="sliderBot__img"><img src="<?php echo $article['img']?>" alt="tom" class="sliderBot__photo"></div>
           <div class="sliderBot__text"><?php echo $article['content']?></div>
           <div class="sliderBot__title"><?php echo $article['title']?></div>
           <div class="sliderBot__position"><?php echo $article['profession']?></div>

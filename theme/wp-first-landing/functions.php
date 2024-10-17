@@ -39,8 +39,9 @@
         'content' => get_the_content('','', $article),
         'link' => get_permalink($article),
         'author' => get_the_author_meta( 'display_name', $article->post_author ),
-        'date' => get_the_time( 'j F Y', $article->ID ),
-        'profession' => get_the_excerpt( $article->ID )
+        'date' => get_the_time( 'j M Y', $article->ID ),
+        'profession' => get_the_excerpt( $article->ID ),
+        'img' => get_the_post_thumbnail_url($article)
       ];
     }
     return $res;
