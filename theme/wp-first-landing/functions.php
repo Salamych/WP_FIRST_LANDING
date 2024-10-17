@@ -1,5 +1,7 @@
 <?php
 
+  define('DISALLOW_FILE_EDIT', true);
+
   define('WPLAND_DIR_CSS', get_template_directory_uri() . '/assets/css/');
   define('WPLAND_DIR_JS', get_template_directory_uri() . '/assets/js/');
   define('WPLAND_DIR_IMG', get_template_directory_uri() . '/assets/img/');
@@ -46,3 +48,18 @@
     }
     return $res;
   }
+
+  //Для страницы медиафайлов (attachment)
+  add_action('template_redirect', function(){
+    global $post;
+    global $wp_query;
+
+    if (is_attachment()){
+      $parent = get_post($post->post_parent);
+      $allowed = ['post'];
+      
+      if(!in_array($parent->post_type, $allowed)){
+        $wp_query->set_404();
+      }
+    }
+  });
